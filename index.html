@@ -1,13 +1,10 @@
-
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-
     google.load("feeds", "1");
-
     function initialize() {
       var feed = new google.feeds.Feed("http://www.google.com/trends/hottrends/atom/feed?pn=p42");feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);feed.setNumEntries(8);
       feed.load(function(result) {
@@ -19,49 +16,39 @@
             var entry = result.feed.entries[i];
             var ul = document.createElement("ul");
             var li = document.createElement("li");
-
             var search = entry.title;
             var date = new Date(entry.publishedDate);
             var n = date.getDay(); 
             var shortDate = date.toDateString().substr(0,10);
-
-            function whichDay() {
-            if (n == todayDate) {
-                return "TRENDER I DAG";
-            } else if (n == todayDate - 1)
-                { return "i går";
-            } else if 
-            (n == 6) {
-                return ("lördag")
-            }
-            else {
-                return shortDate;
-            }
-            }
-
+            //function whichDay() {
+            //if (n == todayDate) {
+            //    return "TRENDER I DAG";
+            //} else if (n == todayDate - 1)
+            //    { return "i går";
+            //} else if 
+            //(n == 6) {
+            //    return ("lördag")
+            //}
+            //else {
+           //     return shortDate;
+           // }
+           // }
            
-
            // var date_day=date.getDay()
            // console.log(date_day);
            // var date_mon=date.getMonth()+1
            // var date_day=date.getDate()
            // var shortDate=date_day + "." + date_mon;
             ul.innerHTML = search;
-            li.innerHTML = whichDay();
-
+            li.innerHTML = shortDate;
             container.appendChild(ul);
             ul.appendChild(li);
-
             
-
-
-
           }
         }
       });
     }
     google.setOnLoadCallback(initialize);
-
     </script>
     <style type="text/css">
         html {
@@ -76,16 +63,13 @@
             padding: 0;
             text-align:center;
         } 
-
 header {
             background-color: #C9B17E;
             padding: 2rem;
             padding-left:0;
             margin: 0;
             text-align:center;
-
         }
-
         header h1 {
             font-family: "Roboto Condensed";
             font-weight: 900;
@@ -108,7 +92,6 @@ header {
         #theFeed {
           padding-top:1.5rem;
         }
-
         ul {
           text-align: center;
             font-family: "Roboto Condensed";
@@ -119,13 +102,10 @@ header {
             display: block;
             padding-left: 0rem;
         }
-
         ul:first-child {
             font-size:6.3em;
             line-height:6.1rem;
-
         }
-
       ul li {
             font-size:0.8em;
             color:#696970;
@@ -134,9 +114,7 @@ header {
             text-align: center;
             display:block;
             border-style:none;
-
         }
-
         footer {
             background-color: #C9B17E;
             padding-top:2em;
@@ -144,8 +122,6 @@ header {
             height:3em;
             font-size:3em;
         }
-
-
     </style>
   </head>
   <body>
